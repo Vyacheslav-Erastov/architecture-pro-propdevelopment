@@ -1,0 +1,12 @@
+apiVersion: constraints.gatekeeper.sh/v1beta1
+kind: K8sPropPreventHostPath
+metadata:
+  name: prevent-hostpath
+spec:
+  match:
+    kinds:
+      - apiGroups: [""]
+        kinds: ["Pod"]
+    namespaces: ["audit-zone"]
+  parameters:
+    message: "HostPath volumes are not allowed for security reasons"
