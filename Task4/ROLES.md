@@ -1,0 +1,7 @@
+| Роль                     | Права роли                                                                                                                                                             | Группы пользователей     |
+| ------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------ |
+| product-viewer-role      | get, list, watch на pods, services, configmaps, pods/log (только чтение метрик и состояния)                                                                            | Владельцы продуктов      |
+| business-analyst-role    | get, list, watch на pods, services, configmaps; get на pods/log для анализа данных                                                                                     | Бизнес-аналитики         |
+| developer-role           | get, list, watch, create, update, patch, delete на pods, services, configmaps; get, create на pods/exec и pods/log (полный CRUD доступ для разработки)                 | Разработчики             |
+| operations-engineer-role | get, list, watch, update, patch на pods, services, configmaps; диагностика через pods/exec; мониторинг через events                                                    | Инженеры по эксплуатации |
+| devops-admin-role        | Полный доступ (*) на все ресурсы в namespace; управление secrets, serviceaccounts; полный контроль над namespace | DevOps-инженеры          |

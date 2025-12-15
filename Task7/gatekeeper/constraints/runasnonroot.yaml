@@ -1,0 +1,12 @@
+apiVersion: constraints.gatekeeper.sh/v1beta1
+kind: K8sPropRequireNonRoot
+metadata:
+  name: require-nonroot
+spec:
+  match:
+    kinds:
+      - apiGroups: [""]
+        kinds: ["Pod"]
+    namespaces: ["audit-zone"]
+  parameters:
+    message: "Containers must run as non-root users with readOnlyRootFilesystem: true"

@@ -1,0 +1,14 @@
+apiVersion: constraints.gatekeeper.sh/v1beta1
+kind: K8sPropPreventPrivileged
+metadata:
+  name: prevent-privileged
+spec:
+  match:
+    kinds:
+      - apiGroups: [""]
+        kinds: ["Pod"]
+    excludedNamespaces:
+      - kube-system
+      - opa-gatekeeper-system
+  parameters:
+    message: "Privileged containers and privilege escalation are not allowed per PropDevelopment security policy"
